@@ -94,7 +94,7 @@
                                     <div class="form-row d-flex flex-column justify-content-xl-center align-items-xl-center">
                                         <div class="col">
                                             <div class="form-group">
-                                                <label for="username"><strong>Username</strong></label><input runat="server" class="form-control" type="text" id="Profile_Username" placeholder="user.name" name="username" /></div>
+                                                <label for="username"><strong>Username</strong></label><input runat="server" class="form-control" type="text" id="Profile_Username" placeholder="user.name" name="username" readonly="" /></div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
