@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="card-body">
                                     <h3 runat="server" id="NoDataMsg" style="display: none;">No Data</h3>
-                                    <div runat="server" id="TableContainer">
+                                    <div runat="server" id="TableContainer" style="max-height: 450px">
                                         <div id="VerticalScroll" style="overflow: auto; max-height: inherit;">
                                             <asp:GridView runat="server" ID="ActionLogs" Visible="true" AutoGenerateColumns="false" Width="100%"
                                                 BorderColor="Transparent" AutoPostBack="false">
