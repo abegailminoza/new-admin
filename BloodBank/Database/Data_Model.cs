@@ -11,7 +11,7 @@ namespace BloodBank.Database
         public string BB_USERNAME { get; set; }
         public string BB_PASSWORD { get; set; }
         public bool BB_RANK { get; set; }
-        public bool BB_STATUS { get; set; }
+        public string BB_STATUS { get; set; }
     }
 
     public class bloodbanklogs
