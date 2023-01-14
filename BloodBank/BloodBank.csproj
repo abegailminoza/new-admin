@@ -175,6 +175,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Donor_Survey.aspx" />
+    <Content Include="Donor_Survey_ViewOnly.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -278,6 +279,13 @@
     </Compile>
     <Compile Include="Donor_Survey.aspx.designer.cs">
       <DependentUpon>Donor_Survey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Donor_Survey_ViewOnly.aspx.cs">
+      <DependentUpon>Donor_Survey_ViewOnly.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Donor_Survey_ViewOnly.aspx.designer.cs">
+      <DependentUpon>Donor_Survey_ViewOnly.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
