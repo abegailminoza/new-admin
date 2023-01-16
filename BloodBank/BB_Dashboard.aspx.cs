@@ -12,7 +12,12 @@ namespace BloodBank
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Convert.ToBoolean(Session["LOGIN"]))
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+
+            if (!Page.IsPostBack)
             {
                 bloodbank bb = Session["bloodbank"] as bloodbank;
                 //Set Username

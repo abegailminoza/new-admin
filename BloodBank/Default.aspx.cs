@@ -45,6 +45,7 @@ namespace BloodBank
                 if(bb.BB_ID != null)
                 {
                     //Save Login Information in Session
+                    Session["LOGIN"] = true;
                     Session["bloodbank"] = bb;
 
                     //Create Login Logs

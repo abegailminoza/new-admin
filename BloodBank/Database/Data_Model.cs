@@ -12,7 +12,7 @@ namespace BloodBank.Database
         public string BB_USERNAME { get; set; }
         public string BB_PASSWORD { get; set; }
         public bool BB_RANK { get; set; }
-        public string BB_STATUS { get; set; }
+        public bool BB_STATUS { get; set; }
     }
 
     [Serializable]
@@ -22,6 +22,36 @@ namespace BloodBank.Database
         public string BL_DESCRIPTION { get; set; }
         public string BL_BB_ID { get; set; }
         public string BL_DATE { get; set; }
+    }
+
+
+    [Serializable]
+    public class blood_request
+    {
+        public string BREQ_ID { get; set; }
+        public string BREQ_UACC_ID { get; set; }
+        public string BREQ_JSON_SURVEY_FORM { get; set; }
+        public bool BREQ_SURVEY_STATUS { get; set; }
+        public bool BREQ_BLOOD_STATUS { get; set; }
+        public bool BREQ_REQ_STATUS { get; set; }
+        public string BREQ_DATE { get; set; }
+    }
+
+    [Serializable]
+    public class request_survey_form
+    {
+        public string lname { get; set; }
+        public string fname { get; set; }
+        public string mname { get; set; }
+        public string gender { get; set; }
+        public string dob { get; set; }
+        public string age { get; set; }
+        public string brequest { get; set; }
+        public string raddress { get; set; }
+        public string paddress { get; set; }
+        public string home { get; set; }
+        public string mobile { get; set; }
+        public string email { get; set; }
     }
 
     [Serializable]
