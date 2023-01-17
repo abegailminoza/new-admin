@@ -276,5 +276,25 @@ namespace BloodBank.Database
             return bd;
         }
 
+        //Get COunter accepts string query
+        public int GetCount(string query)
+        {
+            int res = -1;
+            try
+            {
+                DB_Connect();
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = query;
+                res = Convert.ToInt32(cmd.ExecuteScalar());
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                Debug.Print("Get Count Error : " + ex.Message);
+            }
+            return res;
+        }
+
     }
 }
