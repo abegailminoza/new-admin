@@ -30,7 +30,8 @@
                 <div class="card shadow-lg o-hidden border-0 my-5" style="height: fit-content;">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-lg-6 d-flex d-lg-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/vsmmclogo1.png" style="width: 364px;" /></div>
+                            <div class="col-lg-6 d-flex d-lg-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/vsmmclogo1.png" style="width: 364px;" />
+                            </div>
                             <div class="col-lg-6 d-flex justify-content-xl-center align-items-xl-center">
                                 <div class="p-5" style="width: 100%;">
                                     <div class="text-center" style="margin-bottom: 15px;">
