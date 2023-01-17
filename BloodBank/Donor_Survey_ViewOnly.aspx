@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <title>Dashboard - Brand</title>
+    <title>Donor Survey</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans" />
@@ -24,6 +24,40 @@
     <link rel="stylesheet" href="assets/css/Modal-Login-form.css" />
     <link rel="stylesheet" href="assets/css/Table-With-Search-1.css" />
     <link rel="stylesheet" href="assets/css/Table-With-Search.css" />
+    <script>
+        function UncheckRadioIfTextIsClicked() {
+            var res = document.querySelector('input[name="rd23"]:checked').value;
+            alert(res);
+            document.getElementById("2.3OTH").setAttribute("required", "");
+
+            //Uncheck Radios and Unset required
+            var rds = document.getElementsByName("rd23");
+            for (var i = 0; i < rds.length; i++) {
+                rds[i].removeAttribute("required");
+                rds[i].checked = false;
+            }
+        }
+
+        function CleanInputField() {
+            document.getElementById("2.3OTH").value = "";
+
+            var rds = document.getElementsByName("rd23");
+            for (var i = 0; i < rds.length; i++) {
+                rds[i].setAttribute("required", "");
+            }
+
+            document.getElementById("2.3OTH").removeAttribute("required");
+        }
+
+        function SetAttributesReadOnly() {
+            var items = document.getElementsByTagName("input");
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type !== "button" && !items[i].classList.contains("btn")) {
+                    items[i].setAttribute("disabled", "");
+                }
+            }
+        }
+    </script>
 </head>
 <body id="page-top" onload="SetAttributesReadOnly()">
     <form runat="server" id="wrapper">
@@ -583,9 +617,16 @@
                             </div>
                         </div>
                         <div class="card-footer text-muted">
-                            <p style="font-style: italic">Disclaimer: Before clicking Submit make sure the form is completely filled up.</p>
-                            <button type="reset" class="btn btn-dark" onclick="SetDate()">Sample 2</button>
-                            
+                            <div runat="server" id="SurveyGroup" style="display: none;">
+                                <asp:Button runat="server" ID="ApproveSurveyBtn" OnClick="ApproveSurveyBtn_Click" CssClass="btn btn-primary  btn-signin" style="background: rgb(119,40,32);" type="reset" Text="Approve Survey" UseSubmitBehavior="false" />
+                                <asp:Button runat="server" ID="RejectSurveyBtn" OnClick="RejectSurveyBtn_Click" CssClass="btn btn-primary  btn-signin" style="background: rgb(119,40,32);" type="reset" Text="Reject Survey" UseSubmitBehavior="false" />
+                            </div>
+                            <div runat="server" id="BloodGroup" style="display: none;">
+                                <asp:Button runat="server" ID="ApproveBloodBtn" OnClick="ApproveBloodBtn_Click" CssClass="btn btn-primary  btn-signin" style="background: rgb(119,40,32);" type="reset" Text="Approve Blood Transaction" UseSubmitBehavior="false"  />
+                                <asp:Button runat="server" ID="RejectBloodBtn" OnClick="RejectBloodBtn_Click" CssClass="btn btn-primary  btn-signin" style="background: rgb(119,40,32);" type="reset" Text="Reject Blood Transaction" UseSubmitBehavior="false"  />
+                            </div>
+                            <a class="btn btn-primary  btn-signin" style="background: rgb(119,40,32);margin-top: 5px;" href="BB_BloodTransaction.aspx" >Back</a>
+                            <asp:Button ID="Button1" type="button" CssClass="btn" OnClick="Button1_Click" runat="server" Text="Button" />
                         </div>
                     </div>
                 </div>
@@ -600,38 +641,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/Table-With-Search.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script>
-        function UncheckRadioIfTextIsClicked() {
-            var res = document.querySelector('input[name="rd23"]:checked').value;
-            alert(res);
-            document.getElementById("2.3OTH").setAttribute("required", "");
-
-            //Uncheck Radios and Unset required
-            var rds = document.getElementsByName("rd23");
-            for (var i = 0; i < rds.length; i++) {
-                rds[i].removeAttribute("required");
-                rds[i].checked = false;
-            }
-        }
-
-        function CleanInputField() {
-            document.getElementById("2.3OTH").value = "";
-
-            var rds = document.getElementsByName("rd23");
-            for (var i = 0; i < rds.length; i++) {
-                rds[i].setAttribute("required", "");
-            }
-
-            document.getElementById("2.3OTH").removeAttribute("required");
-        }
-
-        function SetAttributesReadOnly() {
-            var items = document.getElementsByTagName("input");
-            for (var i = 0; i < items.length; i++) {
-                items[i].setAttribute("disabled", "");
-            }
-        }
-    </script>
 </body>
 
 </html>

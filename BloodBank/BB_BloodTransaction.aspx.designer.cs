@@ -11,7 +11,7 @@ namespace BloodBank
 {
 
 
-    public partial class Donor_Survey
+    public partial class BB_BloodTransaction
     {
 
         /// <summary>
@@ -33,66 +33,75 @@ namespace BloodBank
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl username;
 
         /// <summary>
-        /// SurveyGroup control.
+        /// HeadingText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SurveyGroup;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeadingText;
 
         /// <summary>
-        /// ApproveSurveyBtn control.
+        /// TableView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ApproveSurveyBtn;
+        protected global::System.Web.UI.WebControls.DropDownList TableView;
 
         /// <summary>
-        /// RejectSurveyBtn control.
+        /// SearchRequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RejectSurveyBtn;
+        protected global::System.Web.UI.WebControls.TextBox SearchRequest;
 
         /// <summary>
-        /// BloodGroup control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl BloodGroup;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
-        /// ApproveBloodBtn control.
+        /// SearchBloodRequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ApproveBloodBtn;
+        protected global::System.Web.UI.WebControls.Button SearchBloodRequest;
 
         /// <summary>
-        /// RejectBloodBtn control.
+        /// RequestStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RejectBloodBtn;
+        protected global::System.Web.UI.WebControls.DropDownList RequestStatus;
 
         /// <summary>
-        /// BackButton control.
+        /// GridUserBloodRequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackButton;
+        protected global::System.Web.UI.WebControls.GridView GridUserBloodRequest;
+
+        /// <summary>
+        /// GridUserBloodDonation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridUserBloodDonation;
     }
 }

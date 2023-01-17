@@ -166,8 +166,10 @@
     <Content Include="assets\js\Table-With-Search.js" />
     <Content Include="assets\js\theme.js" />
     <Content Include="BB_ActionLogs.aspx" />
+    <Content Include="BB_BloodTransaction.aspx" />
     <Content Include="BB_Dashboard.aspx" />
     <Content Include="BB_Profile.aspx" />
+    <Content Include="BB_Request_Survey.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -187,7 +189,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="WebForm1.aspx" />
     <Content Include="assets\fonts\fa-brands-400.eot" />
     <Content Include="assets\fonts\fa-brands-400.ttf" />
     <Content Include="assets\fonts\fa-brands-400.woff" />
@@ -250,6 +251,13 @@
     <Compile Include="BB_ActionLogs.aspx.designer.cs">
       <DependentUpon>BB_ActionLogs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BB_BloodTransaction.aspx.cs">
+      <DependentUpon>BB_BloodTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BB_BloodTransaction.aspx.designer.cs">
+      <DependentUpon>BB_BloodTransaction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BB_Dashboard.aspx.cs">
       <DependentUpon>BB_Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -263,6 +271,13 @@
     </Compile>
     <Compile Include="BB_Profile.aspx.designer.cs">
       <DependentUpon>BB_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BB_Request_Survey.aspx.cs">
+      <DependentUpon>BB_Request_Survey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BB_Request_Survey.aspx.designer.cs">
+      <DependentUpon>BB_Request_Survey.aspx</DependentUpon>
     </Compile>
     <Compile Include="Database\Database_Connections.cs" />
     <Compile Include="Database\Data_Model.cs" />
@@ -311,13 +326,6 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
