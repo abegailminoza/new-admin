@@ -75,130 +75,128 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <div id="content"></div>
-                    </div>
-                    <h1>Blood Inventory by Blood Type</h1>
-                    <div class="row">
-                        <div class="col-md-6 col-xl-3 mb-4" style="border-color: var(--danger);">
-                            <div class="card shadow border-left-primary py-2" style="background: rgb(255,255,255);">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span style="font-size: 30px;color: rgb(119,40,32);">A+</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span style="font-size: 40px;">77</span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-burn fa-2x text-gray-300" style="background: #ffffff;font-size: 40px;"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-left-success py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span style="font-size: 30px;color: rgb(119,40,32);">B+</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span style="font-size: 50px;">98</span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-burn fa-2x text-gray-300" style="font-size: 40px;"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-left-info py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="font-size: 30px;border-color: rgb(99,91,90);">aB+</span></div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span style="font-size: 50px;">34</span></div>
+                        <div id="content">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="row d-flex flex-column">
+                                                <div class="col d-flex" style="margin-bottom: 10px;">
+                                                    <div class="card" style="width: 100%;">
+                                                        <div class="card-header" style="padding: 0px;padding-top: 9px;background: var(--red);">
+                                                            <h3 class="text-center" style="font-weight: bold;color: var(--white);">TOTAL NUMBER OF USERS</h3>
+                                                        </div>
+                                                        <div class="card-body" style="width: 100%;">
+                                                            <div class="row">
+                                                                <div class="col d-flex justify-content-xl-center align-items-xl-center">
+                                                                    <h1 runat="server" id="TotalNumberUser"></h1>
+                                                                </div>
+                                                                <div class="col-2 d-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/user.png" width="30"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="card" style="width: 100%;">
+                                                                <div class="card-header" style="padding: 0px;padding-top: 9px;background: var(--red);">
+                                                                    <h5 class="text-center" style="font-weight: bold;color: var(--white);">REQUESTOR</h5>
+                                                                </div>
+                                                                <div class="card-body" style="width: 100%;">
+                                                                    <div class="row">
+                                                                        <div class="col d-flex justify-content-xl-center align-items-xl-center">
+                                                                            <h1 runat="server" id="NumberRequestor"></h1>
+                                                                        </div>
+                                                                        <div class="col-3 d-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/blood-drop.png" width="30"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="card" style="width: 100%;">
+                                                                <div class="card-header" style="padding: 0px;padding-top: 9px;background: var(--red);">
+                                                                    <h5 class="text-center" style="font-weight: bold;color: var(--white);">DONORS</h5>
+                                                                </div>
+                                                                <div class="card-body" style="width: 100%;">
+                                                                    <div class="row">
+                                                                        <div class="col d-flex justify-content-xl-center align-items-xl-center">
+                                                                            <h1 runat="server" id="NumberDonor"></h1>
+                                                                        </div>
+                                                                        <div class="col-3 d-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/blood-donation.png" width="30"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-burn fa-2x text-gray-300" style="font-size: 40px;"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-left-info py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="font-size: 30px;border-color: rgb(119,40,32);">O+</span></div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span style="font-size: 50px;">34</span></div>
+                                        <div class="col-6">
+                                            <div class="row d-flex flex-column">
+                                                <div class="col d-flex" style="margin-bottom: 10px;">
+                                                    <div class="card" style="width: 100%;">
+                                                        <div class="card-header" style="padding: 0px;padding-top: 9px;background: #25476a;">
+                                                            <h3 class="text-center" style="font-weight: bold;color: var(--white);">PENDING TRANSACTIONS</h3>
+                                                        </div>
+                                                        <div class="card-body" style="width: 100%;">
+                                                            <div class="row">
+                                                                <div class="col d-flex justify-content-xl-center align-items-xl-center">
+                                                                    <h1 runat="server" id="TotalNumberTransaction"></h1>
+                                                                </div>
+                                                                <div class="col-2 d-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/bill.png" width="30"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="card" style="width: 100%;">
+                                                                <div class="card-header" style="padding: 0px;padding-top: 9px;background: #25476a;">
+                                                                    <h5 class="text-center" style="font-weight: bold;color: var(--white);">REQUESTS</h5>
+                                                                </div>
+                                                                <div class="card-body" style="width: 100%;">
+                                                                    <div class="row">
+                                                                        <div class="col d-flex justify-content-xl-center align-items-xl-center">
+                                                                            <h1 runat="server" id="NumberRequestTransaction"></h1>
+                                                                        </div>
+                                                                        <div class="col-3 d-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/blood-drop.png" width="30"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="card" style="width: 100%;">
+                                                                <div class="card-header" style="padding: 0px;padding-top: 9px;background: #25476a;">
+                                                                    <h5 class="text-center" style="font-weight: bold;color: var(--white);">DONATIONS</h5>
+                                                                </div>
+                                                                <div class="card-body" style="width: 100%;">
+                                                                    <div class="row">
+                                                                        <div class="col d-flex justify-content-xl-center align-items-xl-center">
+                                                                            <h1 runat="server" id="NumberDonationTransaction"></h1>
+                                                                        </div>
+                                                                        <div class="col-3 d-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/blood-donation.png" width="30"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-burn fa-2x text-gray-300" style="font-size: 40px;"></i></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-left-info py-2" style="height: 167px;">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="font-size: 30px;color: rgb(119,40,32);">A-</span></div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span style="font-size: 40px;">34</span></div>
-                                                </div>
+                                <div class="col-6">
+                                    <div class="card d-flex">
+                                        <div class="card-header" style="background: var(--red);padding: 0px;padding-top: 9px;">
+                                            <h3 class="text-center" style="font-weight: bold;color: var(--white);">Blood Transactions</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div>
+                                                <canvas id="myPieChart" width="350" height="350"></canvas>
                                             </div>
                                         </div>
-                                        <div class="col-auto"><i class="fas fa-burn fa-2x text-gray-300" style="font-size: 40px;"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-left-info py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="font-size: 30px;color: rgb(119,40,32);">B-</span></div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span style="font-size: 50px;">34</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-burn fa-2x text-gray-300" style="font-size: 40px;"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-left-info py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span style="font-size: 30px;color: rgb(119,40,32);">AB-</span></div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span style="font-size: 50px;">34</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-burn fa-2x text-gray-300" style="font-size: 40px;"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-xl-3 mb-4">
-                            <div class="card shadow border-left-warning py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col mr-2">
-                                            <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span style="font-size: 30px;">O-</span></div>
-                                            <div class="text-dark font-weight-bold h5 mb-0"><span style="font-size: 50px;">18</span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-burn fa-2x text-gray-300" style="font-size: 40px;"></i></div>
                                     </div>
                                 </div>
                             </div>
@@ -210,11 +208,31 @@
     </form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/login-full-page-bs4.js"></script>
     <script src="assets/js/login-full-page-bs4-1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
     <script src="assets/js/Table-With-Search.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script>
+        var barColors = ["red", "green", "blue", "orange", "brown"];
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: <%=Newtonsoft.Json.JsonConvert.SerializeObject(Labels)%>,  // labels array created in step 4
+                datasets: [{
+                    data: <%=Newtonsoft.Json.JsonConvert.SerializeObject(Data)%>,  // data array created in step 4
+                    backgroundColor: barColors,
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                // options object
+            }
+        });
+    </script>
 </body>
 
 </html>
