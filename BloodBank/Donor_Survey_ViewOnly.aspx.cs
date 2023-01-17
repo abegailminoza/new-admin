@@ -12,15 +12,27 @@ namespace BloodBank
 {
     public partial class Donor_Survey_ViewOnly : System.Web.UI.Page
     {
+        private Database_Connections db = new Database_Connections();
         protected void Page_Load(object sender, EventArgs e)
         {
-            DonorSurvey ds = JsonConvert.DeserializeObject<DonorSurvey>("{\"personalInfo\":{\"PanelName\":\"asfdasf\",\"DonorName\":\"safa\",\"FamilyName\":\"sadfs\",\"FirstName\":\"dsgse\",\"Title\":\"estrwg\",\"IDNo\":\"dsges\",\"DateOfBirth\":\"2023-01-14\",\"Gender\":\"dsfwecs dasd \",\"Occupation\":\"sadasd\",\"ResidentialAddress\":\"asrwq\",\"PostalAddress\":\"wrwer\",\"Home\":\"13214\",\"Work\":\"2141254\",\"Mobile\":\"4356436\",\"EmailAddress\":\"bdeadsd\"},\"healthAssessment\":{\"N11\":\"yes\",\"N12\":\"yes\",\"N13\":\"yes\",\"N14\":\"yes\",\"N15\":\"yes\",\"N16a\":\"yes\",\"N16b\":\"yes\",\"N16c\":\"yes\",\"N16d\":\"no\",\"N17\":\"yes\",\"N18a\":\"yes\",\"N18b\":\"yes\",\"N19a\":\"yes\",\"N19b\":\"yes\",\"N19c\":\"yes\",\"N110\":\"yes\",\"N111\":\"yes\",\"N112\":\"yes\",\"N113\":\"yes\",\"N114a\":\"yes\",\"N114b\":\"yes\",\"N115\":\"sdasdn\"},\"riskAssessment\":{\"N21\":\"yes\",\"N22\":\"yes\",\"N23\":\"voluntary\",\"N24\":\"yes\",\"N25\":\"yes\",\"N26\":\"yes\",\"N27a\":\"yes\",\"N27b\":\"yes\",\"N27c\":\"yes\",\"N28\":\"yes\",\"N29\":\"yes\",\"N210\":\"yes\",\"N211\":\"yes\"}}");
-            PopulateSurveyForm(ds);
+            if (!Convert.ToBoolean(Session["LOGIN"]))
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+
+            if (!Page.IsPostBack)
+            {
+                bloodbank bb = Session["bloodbank"] as bloodbank;
+                //Set Username
+                username.InnerText = bb.BB_USERNAME;
+                PopulateSurveyForm();
+            }
         }
 
-        public void PopulateSurveyForm(DonorSurvey ds)
+        public void PopulateSurveyForm()
         {
-
+            blood_donation bd = Session["BloodDonation"] as blood_donation;
+            DonorSurvey ds = JsonConvert.DeserializeObject<DonorSurvey>(bd.BD_JSON_SURVEY_FORM);
 
             //Basic/Personal Information
             ViewState["panelname"] = ds.personalInfo.PanelName;
@@ -163,8 +175,116 @@ namespace BloodBank
             rd211n.Checked = (string.Equals(ds.riskAssessment.N211, "no", StringComparison.OrdinalIgnoreCase));
 
 
+            if (!bd.BD_REQ_STATUS)
+            {
+                SurveyGroup.Style.Add("display", "none");
+                BloodGroup.Style.Add("display", "none");
+            }
+            else if (!bd.BD_SURVEY_STATUS)
+            {
+                SurveyGroup.Style.Add("display", "");
+                BloodGroup.Style.Add("display", "none");
+            }
+            else if (!bd.BD_BLOOD_STATUS)
+            {
+                SurveyGroup.Style.Add("display", "none");
+                BloodGroup.Style.Add("display", "");
+            }
+
+        }
+
+        protected void BackButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BB_BloodTransaction.aspx");
+        }
+
+        private void UserRequestSurveyResponse(bool res)
+        {
+            blood_donation bd = Session["BloodDonation"] as blood_donation;
+            string query = "";
+
+            if (res)
+            {
+                query = string.Format(@"update blood_donation set BD_SURVEY_STATUS={0} where BD_ID={1}", res, bd.BD_ID);
+                if (db.UpdateBloodRequestStatus(query))
+                {
+                    //Success
+                    Response.Write(string.Format("<script>alert('User {0} blood donation survey was successfully approved.')</script>", bd.BD_UACC_ID));
+
+                    SurveyGroup.Style.Add("display", "none");
+                    BloodGroup.Style.Add("display", "");
+                }
+            }
+            else
+            {
+                query = string.Format(@"update blood_request set BREQ_SURVEY_STATUS=false, BREQ_BLOOD_STATUS=false, BREQ_REQ_STATUS={0} where BREQ_ID={1}", res, bd.BD_ID);
+                if (db.UpdateBloodRequestStatus(query))
+                {
+                    //Success
+                    Response.Write(string.Format("<script>alert('User {0} blood request survey was successfully rejected.')</script>", bd.BD_UACC_ID));
+
+                    SurveyGroup.Style.Add("display", "none");
+                    BloodGroup.Style.Add("display", "none");
+                }
+            }
+        }
 
 
+        private void UserRequestBloodResponse(bool res)
+        {
+            blood_donation bd = Session["BloodDonation"] as blood_donation;
+            string query = "";
+
+            if (res)
+            {
+                query = string.Format(@"update blood_request set BD_BLOOD_STATUS={0} where BD_ID={1}", res, bd.BD_ID);
+                if (db.UpdateBloodRequestStatus(query))
+                {
+                    //Success
+                    Response.Write(string.Format("<script>alert('User {0} blood donation was successfully approved.')</script>", bd.BD_ID));
+
+                    SurveyGroup.Style.Add("display", "none");
+                    BloodGroup.Style.Add("display", "none");
+                }
+            }
+            else
+            {
+                query = string.Format(@"update blood_request set BD_BLOOD_STATUS=false, BD_REQ_STATUS={0} where BREQ_ID={1}", res, bd.BD_ID);
+                if (db.UpdateBloodRequestStatus(query))
+                {
+                    //Success
+                    Response.Write(string.Format("<script>alert('User {0} blood donation was successfully rejected.')</script>", bd.BD_ID));
+
+                    SurveyGroup.Style.Add("display", "none");
+                    BloodGroup.Style.Add("display", "none");
+                }
+            }
+        }
+
+        protected void ApproveSurveyBtn_Click(object sender, EventArgs e)
+        {
+            Response.Write("Hello");
+            UserRequestSurveyResponse(true);
+        }
+
+        protected void RejectSurveyBtn_Click(object sender, EventArgs e)
+        {
+            UserRequestSurveyResponse(false);
+        }
+
+        protected void ApproveBloodBtn_Click(object sender, EventArgs e)
+        {
+            UserRequestBloodResponse(true);
+        }
+
+        protected void RejectBloodBtn_Click(object sender, EventArgs e)
+        {
+            UserRequestBloodResponse(false);
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Write("Here");
         }
     }
 }

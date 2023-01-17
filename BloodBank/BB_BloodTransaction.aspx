@@ -46,7 +46,7 @@
             <div id="content" style="background: linear-gradient(rgb(249,243,243) 28%, white), #ffffff;">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"><h3>Blood Request</h3></div>
+                        <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"><h3>Blood Transactions</h3></div>
                         <ul class="navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-toggle="dropdown" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw" style="font-size: 29px;color: rgb(119,40,32);"></i></a>
@@ -74,14 +74,17 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4" style="height: 31.5938px; margin: 32px;">Blood Requests</h3>
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold"></p>
+                            <h3 class="text-dark mb-4" style="height: 31.5938px; margin: 32px;" runat="server" id="HeadingText">Blood Requests</h3>
                         </div>
                         <div class="card-body">
                             <div class="card-header d-flex" style="flex-direction: row; justify-content: start; align-items: center;">
-                                <div class="d-flex" style="flex-direction: row; justify-content: center; align-items: start; margin-right: 10px;">
+                                <div class="d-flex" style="flex-direction: row; justify-content: center; align-items: start;margin-right: 20px;">
+                                    <h5 style="margin-right: 5px;">Table</h5>
+                                    <asp:DropDownList runat="server" ID="TableView" AutoPostBack="true" OnSelectedIndexChanged="TableView_SelectedIndexChanged" />
+                                </div>
+                                <div class="d-flex" style="flex-direction: row; justify-content: center; align-items: center; margin-right: 20px;">
                                     <h5 style="margin-right: 5px;">Search Blood Request ID</h5>
                                     <asp:TextBox runat="server" ID="SearchRequest"  placeholder="Requester ID" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" style="margin-right: 5px;" ErrorMessage="*" Text="*" ControlToValidate="Searchrequest" ValidationGroup="SearchRequest" Font-Bold="True" Font-Size="XX-Large"></asp:RequiredFieldValidator>
@@ -103,6 +106,19 @@
                                         <asp:BoundField HeaderText="INITIAL STATUS" DataField="BREQ_SURVEY_STATUS" />
                                         <asp:BoundField HeaderText="FINAL STATUS" DataField="BREQ_BLOOD_STATUS" />
                                         <asp:BoundField HeaderText="DATE" DataField="BREQ_DATE" />
+                                        <asp:CommandField ButtonType="Button" ShowSelectButton="true" SelectText="View" ControlStyle-CssClass="grid-select-btn" />
+                                    </Columns>
+                                </asp:GridView>
+                                <asp:GridView runat="server" ID="GridUserBloodDonation" Visible="true" AutoGenerateColumns="false" Width="100%"
+                                    BorderColor="Transparent" OnSelectedIndexChanged="GridUserBloodDonation_SelectedIndexChanged"
+                                    AutoPostBack="false" style="display: none;"
+                                    AllowSorting="true">
+                                    <Columns>
+                                        <asp:BoundField HeaderText="ID" DataField="BD_ID" />
+                                        <asp:BoundField HeaderText="DONATOR" DataField="BD_UACC_ID" />
+                                        <asp:BoundField HeaderText="SURVEY STATUS" DataField="BD_SURVEY_STATUS" />
+                                        <asp:BoundField HeaderText="BLOOD STATUS" DataField="BD_BLOOD_STATUS" />
+                                        <asp:BoundField HeaderText="DATE" DataField="BD_DATE" />
                                         <asp:CommandField ButtonType="Button" ShowSelectButton="true" SelectText="View" ControlStyle-CssClass="grid-select-btn" />
                                     </Columns>
                                 </asp:GridView>

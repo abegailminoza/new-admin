@@ -225,5 +225,56 @@ namespace BloodBank.Database
             return res;
         }
 
+        //Get User Blood Donation
+        public DataTable GetuserBloodDonation(string query)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                DB_Connect();
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = query;
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.Print("Get User Blood Donation : " + ex.Message);
+            }
+            return dt;
+        }
+
+        //Search Blood Request on grid table row selected
+        public blood_donation SearchBloodDonation(string id)
+        {
+            blood_donation bd = new blood_donation();
+            try
+            {
+                DB_Connect();
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = string.Format("select * from blood_donation where BD_ID={0};", id);
+                rdr = cmd.ExecuteReader();
+                if (rdr.Read() && !rdr.IsDBNull(0))
+                {
+                    bd.BD_ID = rdr["BD_ID"].ToString();
+                    bd.BD_UACC_ID = rdr["BD_UACC_ID"].ToString();
+                    bd.BD_JSON_SURVEY_FORM = rdr["BD_JSON_SURVEY_FORM"].ToString();
+                    bd.BD_SURVEY_STATUS = Convert.ToBoolean(rdr["BD_SURVEY_STATUS"]);
+                    bd.BD_BLOOD_STATUS = Convert.ToBoolean(rdr["BD_BLOOD_STATUS"]);
+                    bd.BD_REQ_STATUS = Convert.ToBoolean(rdr["BD_REQ_STATUS"]);
+                    bd.BD_DATE = rdr["BD_DATE"].ToString();
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.Print("Search Blood Donation Error : " + ex.Message);
+            }
+            return bd;
+        }
+
     }
 }

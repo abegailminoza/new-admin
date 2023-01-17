@@ -161,5 +161,10 @@ namespace BloodBank
             //Request.Params["rd210"] = ds.riskAssessment.N210;
             //Request.Params["rd211"] = ds.riskAssessment.N211;
         }
+
+        protected void BackButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -38,6 +38,18 @@ namespace BloodBank.Database
     }
 
     [Serializable]
+    public class blood_donation
+    {
+        public string BD_ID { get; set; }
+        public string BD_UACC_ID { get; set; }
+        public string BD_JSON_SURVEY_FORM { get; set; }
+        public bool BD_SURVEY_STATUS { get; set; }
+        public bool BD_BLOOD_STATUS { get; set; }
+        public bool BD_REQ_STATUS { get; set; }
+        public string BD_DATE { get; set; }
+    }
+
+    [Serializable]
     public class request_survey_form
     {
         public string lname { get; set; }
