@@ -11,8 +11,7 @@ namespace BloodBank.Database
         public string BB_ID { get; set; }
         public string BB_USERNAME { get; set; }
         public string BB_PASSWORD { get; set; }
-        public bool BB_RANK { get; set; }
-        public bool BB_STATUS { get; set; }
+       
     }
 
     [Serializable]
@@ -144,5 +143,22 @@ namespace BloodBank.Database
         public string N29 { get; set; }
         public string N210 { get; set; }
         public string N211 { get; set; }
+    }
+
+    //blog post
+    public class blog_post
+    {
+        public string BLOG_ID { get; set; }
+        public string BLOG_CONTENT { get; set; }
+        public string BLOG_UACC_ID { get; set; }
+        public string BLOG_REPORT { get; set; }
+        public string BLOG_DATE { get; set; }
+        public bool BLOG_STATUS { get; set; }
+        public string BLOG_REPORTER { get; set; }
+
+        //Mag agmit ug join query para ani niya nga fields
+        public string BLOG_UACC_EMAIL { get; set; }
+        public string BLOG_UACC_NAME { get; set; }
+
     }
 }

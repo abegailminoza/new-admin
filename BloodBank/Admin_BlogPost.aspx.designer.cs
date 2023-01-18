@@ -11,7 +11,7 @@ namespace BloodBank
 {
 
 
-    public partial class Donor_Survey
+    public partial class Admin_BlogPost
     {
 
         /// <summary>
@@ -33,21 +33,12 @@ namespace BloodBank
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl username;
 
         /// <summary>
-        /// SubmitSurvey control.
+        /// BlogPosts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitSurvey;
-
-        /// <summary>
-        /// samp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button samp;
+        protected global::System.Web.UI.WebControls.Repeater BlogPosts;
     }
 }

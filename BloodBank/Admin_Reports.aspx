@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BB_ActionLogs.aspx.cs" Inherits="BloodBank.BB_ActionLogs" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_Reports.aspx.cs" Inherits="BloodBank.Admin_Reports" %>
 
 <!DOCTYPE html>
 
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <title>BloodBank Activity Logs</title>
+    <title>Reports</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans" />
@@ -35,35 +35,28 @@
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item"><a class="nav-link" href="BB_Dashboard.aspx"><i class="fas fa-tachometer-alt" style="font-size: 20px;"></i><span style="font-size: 15px;">Dashboard</span></a></li>
-                   <li class="nav-item"><a class="nav-link" href="Admin_BlogPost.aspx"><i class="fas fa-tachometer-alt" style="font-size: 20px;"></i><span style="font-size: 15px;">Blog Post</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="bloodtransaction.html"><i class="fa fa-tint" style="font-size: 20px;"></i><span style="font-size: 15px;">Blood Transaction</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="BB_ActionLogs.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Action Log</span></a></li>
-                </ul>
+                    <li class="nav-item"><a class="nav-link" href="Admin_BlogPost.aspx"><i class="fas fa-tachometer-alt" style="font-size: 20px;"></i><span style="font-size: 15px;">Blog Post</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="BB_BloodTransaction.aspx"><i class="fa fa-tint" style="font-size: 20px;"></i><span style="font-size: 15px;">Blood Transaction</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="Admin_Reports.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Reports</span></a></li> 
+                    </ul>
                 <div class="text-center d-none d-md-inline"></div>
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" style="background: linear-gradient(rgb(249,243,243) 28%, white), #ffffff;">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                    <div class="container-fluid">
-                        <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <input class="form-control-plaintext" type="text" value="Dashboard" readonly="" style="font-size: 40px;"></div>
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"><h3>Reports</h3></div>
                         <ul class="navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="nav-item dropdown no-arrow">
-                                  
                                 </div>
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
                             <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown show no-arrow">
-                                    <a class="dropdown-toggle nav-link" aria-expanded="true" data-toggle="dropdown" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small" runat="server" id="username"></span>
-                                        <img class="border rounded-circle img-profile" src="assets/img/user.png" /></a>
-                                    <div class="dropdown-menu show shadow dropdown-menu-right animated--grow-in">
-                                        <a class="dropdown-item" href="BB_Profile.aspx"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="Default.aspx"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                <div class="nav-item dropdown show no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="true" data-toggle="dropdown" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small" runat="server" id="username"></span><img class="border rounded-circle img-profile" src="assets/img/user.png" /></a>
+                                    <div class="dropdown-menu show shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="BB_Profile.aspx"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="Default.aspx"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
                                     </div>
                                 </div>
                             </li>
@@ -71,36 +64,39 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <div class="card shadow">
-                                <div class="card-header py-3">
-                                    <h1>BloodBank Activity Logs</h1>
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <h3 class="text-dark mb-4" style="height: 31.5938px; margin: 32px;" runat="server" id="HeadingText">Reports</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header d-flex" style="flex-direction: row; justify-content: start; align-items: center;">
+                                <div class="d-flex" style="flex-direction: row; justify-content: center; align-items: start;margin-right: 20px;">
+                                    <h5 style="margin-right: 5px;">Table</h5>
+                                    <asp:DropDownList runat="server" ID="UserTableView" AutoPostBack="true" OnSelectedIndexChanged="TableView_SelectedIndexChanged" />
                                 </div>
-                                <div class="card-body">
-                                    <h3 runat="server" id="NoDataMsg" style="display: none;">No Data</h3>
-                                    <div runat="server" id="TableContainer" style="max-height: 450px">
-                                        <div id="VerticalScroll" style="overflow: auto; max-height: inherit;">
-                                            <asp:GridView runat="server" ID="ActionLogs" Visible="true" AutoGenerateColumns="false" Width="100%"
-                                                BorderColor="Transparent" AutoPostBack="false">
-                                                <RowStyle CssClass="grid-item-style  grid-font-style" />
-                                                <Columns>
-                                                    <asp:BoundField HeaderText="ID" DataField="BL_ID" />
-                                                    <asp:BoundField HeaderText="DESCRIPTION" DataField="BL_DESCRIPTION" />
-                                                    <asp:BoundField HeaderText="USER ID" DataField="BL_BB_ID" />
-                                                    <asp:BoundField HeaderText="DATE" DataField="BL_DATE" />
-                                                </Columns>
-                                            </asp:GridView>
-                                        </div>
-                                    </div>
-                                </div>
+                             
+                                
+                            </div>
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info" style="max-height: 410px; overflow: auto;">
+                                <asp:GridView runat="server" ID="GridUser" Visible="true" AutoGenerateColumns="false" Width="100%"
+                                    BorderColor="Transparent" 
+                                    AutoPostBack="false" 
+                                    AllowSorting="true">
+                                    <Columns>
+                                        <asp:BoundField HeaderText="ID" DataField="UACC_ID" />
+                                        <asp:BoundField HeaderText="Last Name" DataField="UACC_LAST" />
+                                        <asp:BoundField HeaderText="FirstName" DataField="UACC_FIRST" />
+                                        <asp:BoundField HeaderText="Middle Name" DataField="UACC_MIDDLE" />
+                                      
+                                        </Columns>
+                                </asp:GridView>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

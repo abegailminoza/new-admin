@@ -34,7 +34,7 @@ namespace BloodBank
                 //Attempt to Login
 
                 //Query or SQL Command
-                string query = string.Format(@"select * from bloodbank where binary BB_USERNAME='{0}' and binary BB_PASSWORD='{1}';", uname, pword);
+                string query = string.Format(@"select * from admin where binary ADMIN_EMAIL='{0}' and binary ADMIN_PASSWORD='{1}';", uname, pword);
 
                 //Try Query
                 bloodbank bb = db.BloodbankLogin(query);
@@ -48,30 +48,7 @@ namespace BloodBank
                     Session["LOGIN"] = true;
                     Session["bloodbank"] = bb;
 
-                    //Create Login Logs
-                    query = string.Format(@"insert into bloodbanklogs(BL_DESCRIPTION, BL_BB_ID) 
-                                            values('{0}', {1});", "User " + bb.BB_USERNAME + " Logged In", bb.BB_ID);
-                    Debug.Print(query);
-                    bool res = db.InsertBloodBankLogs(query);
-                    //If Not Successfully Inserted Logs
-                    if(!res)
-                    {
-                        Debug.Print("BloodBank Logs Not Inserted");
-                    }
-                    Debug.Print("BB Rank : " + bb.BB_RANK);
-                    string msg = "";
-                    if(bb.BB_RANK)
-                    {
-                        //Personnel Head
-                        msg = "Personnel Head";
-                    }
-                    else
-                    {
-                        //Personnel (Bata-bata)
-                        msg = "Personnel (Bata-bata)";
-                    }
-
-                    Response.Write("<script>alert('" + msg + "')</script>");
+                    
                     Response.Redirect("~/BB_Dashboard.aspx");
                 }
                 else

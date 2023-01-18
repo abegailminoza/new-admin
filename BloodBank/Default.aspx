@@ -30,17 +30,17 @@
                 <div class="card shadow-lg o-hidden border-0 my-5" style="height: fit-content;">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-lg-6 d-flex d-lg-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/vsmmclogo1.png" style="width: 364px;" />
+                            <div class="col-lg-6 d-flex d-lg-flex justify-content-xl-center align-items-xl-center"><img src="assets/img/solologo.png" style="width: 364px;" />
                             </div>
                             <div class="col-lg-6 d-flex justify-content-xl-center align-items-xl-center">
                                 <div class="p-5" style="width: 100%;">
                                     <div class="text-center" style="margin-bottom: 15px;">
-                                        <h4 class="text-dark mb-4">VSMMC Blood Bank</h4>
+                                        <h4 class="text-dark mb-4">Welcome Back to LifePoints</h4>
                                     </div>
                                     <hr style="margin-bottom: 24px;">
                                     <div class="user">
                                         <div class="form-group" style="margin-bottom: 19px;">
-                                            <asp:TextBox runat="server" Class="form-control d-flex justify-content-xl-center align-items-xl-center form-control-user" ID="Username" placeholder="Username" autocomplete="on" required="" />
+                                            <asp:TextBox runat="server" Class="form-control d-flex justify-content-xl-center align-items-xl-center form-control-user" ID="Username" placeholder="Email" type="email" autocomplete="on" required="" />
                                         </div>
                                         <div class="form-group" style="margin-bottom: 24px;">
                                             <asp:TextBox runat="server" Class="form-control form-control-user" type="password" ID="Password" placeholder="Password" name="password" required="" />

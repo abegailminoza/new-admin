@@ -11,7 +11,7 @@ namespace BloodBank
 {
 
 
-    public partial class Donor_Survey
+    public partial class Admin_Reports
     {
 
         /// <summary>
@@ -33,21 +33,30 @@ namespace BloodBank
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl username;
 
         /// <summary>
-        /// SubmitSurvey control.
+        /// HeadingText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitSurvey;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeadingText;
 
         /// <summary>
-        /// samp control.
+        /// UserTableView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button samp;
+        protected global::System.Web.UI.WebControls.DropDownList UserTableView;
+
+        /// <summary>
+        /// GridUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridUser;
     }
 }

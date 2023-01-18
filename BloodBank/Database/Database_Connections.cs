@@ -45,11 +45,10 @@ namespace BloodBank.Database
                 rdr = cmd.ExecuteReader();
                 if(rdr.Read() && !rdr.IsDBNull(0))
                 {
-                    bb.BB_ID = rdr["BB_ID"].ToString();
-                    bb.BB_USERNAME = rdr["BB_USERNAME"].ToString();
-                    bb.BB_PASSWORD = rdr["BB_PASSWORD"].ToString();
-                    bb.BB_RANK = Convert.ToBoolean(rdr["BB_RANK"]);
-                    bb.BB_STATUS = Convert.ToBoolean(rdr["BB_STATUS"]);
+                    bb.BB_ID = rdr["ADMIN_ID"].ToString();
+                    bb.BB_USERNAME = rdr["ADMIN_EMAIL"].ToString();
+                    bb.BB_PASSWORD = rdr["ADMIN_PASSWORD"].ToString();
+                   
                 }
                 rdr.Close();
                 con.Close();
@@ -122,13 +121,13 @@ namespace BloodBank.Database
                 con.Open();
                 cmd = con.CreateCommand();
                 //Check Old Password 
-                cmd.CommandText = string.Format("select count(*) as CountRow from bloodbank where binary BB_USERNAME='{0}' and binary BB_PASSWORD='{1}';", uname, opword);
+                cmd.CommandText = string.Format("select count(*) as CountRow from admin where binary ADMIN_EMAIL='{0}' and binary ADMIN_PASSWORD='{1}';", uname, opword);
                 int check = Convert.ToInt32(cmd.ExecuteScalar());
                 if(check >= 1)
                 {
                     //Meaning the Old Password is right
                     //Try to Update
-                    cmd.CommandText = string.Format("update bloodbank set BB_PASSWORD='{0}' where binary BB_USERNAME='{1}' and binary BB_PASSWORD='{2}';", npword, uname, opword);
+                    cmd.CommandText = string.Format("update admin set ADMIN_PASSWORD='{0}' where binary ADMIN_EMAIL='{1}' and binary ADMIN_PASSWORD='{2}';", npword, uname, opword);
                     int x = cmd.ExecuteNonQuery();
                     if(x > 0)
                     {
@@ -294,6 +293,48 @@ namespace BloodBank.Database
                 Debug.Print("Get Count Error : " + ex.Message);
             }
             return res;
+        }
+
+
+        public DataTable SampleReapeater()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                DB_Connect();
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = "select *, concat(UACC_FIRST, ' ', UACC_LAST) as BLOG_UACC_NAME, UACC_EMAIL as BLOG_UACC_EMAIL from blog_post join user_account on BLOG_UACC_ID=UACC_ID where BLOG_STATUS=true order by BLOG_DATE desc;";
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.Print("Sample Repeater Error : " + ex.Message);
+            }
+            return dt;
+        }
+
+
+        public DataTable GetUserTableData(string query)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                DB_Connect();
+                con.Open();
+                cmd = con.CreateCommand();
+                cmd.CommandText = query;
+                da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Debug.Print("Get User : " + ex.Message);
+            }
+            return dt;
         }
 
     }

@@ -142,6 +142,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin_BlogPost.aspx" />
+    <Content Include="Admin_Reports.aspx" />
     <Content Include="assets\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\bootstrap\js\bootstrap.min.js" />
     <Content Include="assets\css\Google-Style-Login.css" />
@@ -169,6 +171,8 @@
     <Content Include="assets\img\dogs\image2.jpeg" />
     <Content Include="assets\img\dogs\image3.jpeg" />
     <Content Include="assets\img\dogs\vsmmclogo1.png" />
+    <Content Include="assets\img\reply.png" />
+    <Content Include="assets\img\solologo.png" />
     <Content Include="assets\img\user-icon.jpg" />
     <Content Include="assets\img\user.png" />
     <Content Include="assets\img\vsmmclogo1.png" />
@@ -256,6 +260,20 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_BlogPost.aspx.cs">
+      <DependentUpon>Admin_BlogPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_BlogPost.aspx.designer.cs">
+      <DependentUpon>Admin_BlogPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Reports.aspx.cs">
+      <DependentUpon>Admin_Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Reports.aspx.designer.cs">
+      <DependentUpon>Admin_Reports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BB_ActionLogs.aspx.cs">
