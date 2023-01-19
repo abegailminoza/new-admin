@@ -38,6 +38,8 @@
                     <li class="nav-item"><a class="nav-link" href="Admin_BlogPost.aspx"><i class="fas fa-tachometer-alt" style="font-size: 20px;"></i><span style="font-size: 15px;">Blog Post</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="BB_BloodTransaction.aspx"><i class="fa fa-tint" style="font-size: 20px;"></i><span style="font-size: 15px;">Blood Transaction</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="Admin_Reports.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Reports</span></a></li> 
+                    <li class="nav-item"><a class="nav-link" href="BB_ActionLogs.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Action Logs</span></a></li>
+
                 </ul>
                 <div class="text-center d-none d-md-inline"></div>
             </div>
@@ -75,7 +77,7 @@
                                     <asp:DropDownList runat="server" ID="TableView" AutoPostBack="true" OnSelectedIndexChanged="TableView_SelectedIndexChanged" />
                                 </div>
                                 <div class="d-flex" style="flex-direction: row; justify-content: center; align-items: center; margin-right: 20px;">
-                                    <h5 style="margin-right: 5px;">Search Blood Request ID</h5>
+                                    <h5 style="margin-right: 5px;">Search Request ID</h5>
                                     <asp:TextBox runat="server" ID="SearchRequest"  placeholder="Requester ID" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" style="margin-right: 5px;" ErrorMessage="*" Text="*" ControlToValidate="Searchrequest" ValidationGroup="SearchRequest" Font-Bold="True" Font-Size="XX-Large"></asp:RequiredFieldValidator>
                                     <asp:Button runat="server" ID="SearchBloodRequest" Text="Search" ValidationGroup="SearchRequest" UseSubmitBehavior="true" OnClick="SearchBloodRequest_Click" />
@@ -92,7 +94,7 @@
                                     AllowSorting="true">
                                     <Columns>
                                         <asp:BoundField HeaderText="ID" DataField="BREQ_ID" />
-                                        <asp:BoundField HeaderText="REQUESTOR" DataField="BREQ_UACC_ID" />
+                                        <asp:BoundField HeaderText="REQUESTER" DataField="BREQ_UACC_ID" />
                                         <asp:BoundField HeaderText="INITIAL STATUS" DataField="BREQ_SURVEY_STATUS" />
                                         <asp:BoundField HeaderText="FINAL STATUS" DataField="BREQ_BLOOD_STATUS" />
                                         <asp:BoundField HeaderText="DATE" DataField="BREQ_DATE" />
