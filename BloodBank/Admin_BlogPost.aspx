@@ -40,35 +40,32 @@
                     <li class="nav-item"><a class="nav-link active" href="Admin_BlogPost.aspx"><i class="fas fa-tachometer-alt" style="font-size: 20px;"></i><span style="font-size: 15px;">Blog Post</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="BB_BloodTransaction.aspx"><i class="fa fa-tint" style="font-size: 20px;"></i><span style="font-size: 15px;">Blood Transaction</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="Admin_Reports.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Reports</span></a></li> 
-                    <li class="nav-item"><a class="nav-link" href="BB_ActionLogs.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Action Logs</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="BB_ActionLogs.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Action Log</span></a></li>
 
-                </ul>
+                    </ul>
                 <div class="text-center d-none d-md-inline"></div>
             </div>
         </nav>
-
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content" style="background: linear-gradient(rgb(249,243,243) 28%, white), #ffffff;">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                    <div class="container-fluid">
-                        <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <input class="form-control-plaintext" type="text" value="Blog Post" readonly="" style="font-size: 40px;"></div>
+                    <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"><input class="form-control-plaintext" type="text" value="Dashboard" readonly="" style="font-size: 40px;"></div>
                         <ul class="navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="nav-item dropdown no-arrow">
-                                 
                                 </div>
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
-                            <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown show no-arrow">
-                                    <a class="dropdown-toggle nav-link" aria-expanded="true" data-toggle="dropdown" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small" runat="server" id="username"></span>
+                           <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow">
+                                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small" runat="server" id="username"></span>
                                         <img class="border rounded-circle img-profile" src="assets/img/user.png" /></a>
-                                    <div class="dropdown-menu show shadow dropdown-menu-right animated--grow-in">
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
                                         <a class="dropdown-item" href="BB_Profile.aspx"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="Default.aspx"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                        <a class="dropdown-item" runat="server" id="BtnLogout" autopostback="true" onserverclick="BtnLogout_ServerClick"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+
                                     </div>
                                 </div>
                             </li>
@@ -79,7 +76,7 @@
  <h1 style="padding-left: 50px;">Posts</h1>
                 <div class="container-fluid">
                     <div class="row" style="height: 100%;">
-                        <div class="col-7" style="padding-left: 40px; padding-right: 40px; overflow: auto; max-height: 500px;">
+                        <div class="col-8" style="padding-left: 40px; padding-right: 40px; overflow: auto; max-height: 700px;">
                             <asp:Repeater runat="server" ID="BlogPosts">
                                 <ItemTemplate>
                                     <div style="margin-bottom: 20px;">
@@ -102,7 +99,7 @@
                                                 </div>
                                             </div>
                                             <div class="card-body">
-                                                <p class="card-text"><%# Eval("BLOG_CONTENT") %></p>
+                                                <h4 class="card-text"><%# Eval("BLOG_CONTENT") %></h4>
                                             </div>
                                             <div class="card-footer">
                                                 <div class="row" style="padding-right: 30px; padding-left: 30px;">

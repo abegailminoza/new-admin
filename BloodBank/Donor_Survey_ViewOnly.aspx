@@ -93,28 +93,29 @@
                                 </div>
                             </li>
                             <div class="d-none d-sm-block topbar-divider"></div>
-                            <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown show no-arrow">
-                                    <a class="dropdown-toggle nav-link" aria-expanded="true" data-toggle="dropdown" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small" runat="server" id="username"></span>
+                           <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow">
+                                    <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small" runat="server" id="username"></span>
                                         <img class="border rounded-circle img-profile" src="assets/img/user.png" /></a>
-                                    <div class="dropdown-menu show shadow dropdown-menu-right animated--grow-in">
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in">
                                         <a class="dropdown-item" href="BB_Profile.aspx"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="Default.aspx"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+                                        <a class="dropdown-item" runat="server" id="BtnLogout" autopostback="true" onserverclick="BtnLogout_ServerClick"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Logout</a>
+
                                     </div>
                                 </div>
-                            </li>
+                            </li>ss
                         </ul>
                     </div>
                 </nav>
                 <div class="container-fluid d-flex" style="align-items: center; justify-content: center;">
-                    <div class="card text-center" style="max-height: 500px; height: 500px; width: 80%;">
+                    <div class="card text-center" style="max-height: 700px; height: 700px; width: 80%;">
                         <div class="card-header">
                             <h2>BLOOD TRANSFUSION SERVICE</h2>
                             <h3>DONOR QUESTIONNAIRE</h3>
                         </div>
                         <div class="card-body">
-                            <div style="max-height: 300px; overflow: auto;">
+                            <div style="max-height: 500px; overflow: auto;">
                                 <p style="font-size: 25px; font-style: bold; margin-left: -30%">
                                     Please complete this form
                                 </p>

@@ -14,6 +14,10 @@ namespace BloodBank
         Database_Connections db = new Database_Connections();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Convert.ToBoolean(Session["LOGIN"]))
+            {
+                Response.Redirect("~/Default.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 bloodbank bb = Session["bloodbank"] as bloodbank;
@@ -41,6 +45,14 @@ namespace BloodBank
                 NoDataMsg.Attributes.Add("display", "");
                 TableContainer.Attributes.Add("display", "none");
             }
+        }
+
+        protected void BtnLogout_ServerClick(object sender, EventArgs e)
+        {
+
+            Session.Clear();
+            Session.RemoveAll();
+            Server.Transfer("~/Default.aspx");
         }
     }
 }
