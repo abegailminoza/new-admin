@@ -30,7 +30,7 @@
 <body id="page-top">
     <form runat="server" id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(119,40,32);">
-            <div class="container-fluid d-flex flex-column p-0"><img style="font-size: 12px;line-height: 23px;border-width: -14px;margin-top:15px;height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+            <div class="container-fluid d-flex flex-column p-0"><img style="font-size: 12px;line-height: 23px;border-width: -14px;margin-top:50px;height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
                     <div class="sidebar-brand-text mx-3"><span style="font-size: 25px;">LifePoints</span></div>
                 </a>
@@ -50,7 +50,7 @@
             <div id="content" style="background: linear-gradient(rgb(249,243,243) 28%, white), #ffffff;">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
-                        <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"><input class="form-control-plaintext" type="text" value="Dashboard" readonly="" style="font-size: 40px;"></div>
+                        <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"><input class="form-control-plaintext" type="text" value="Post"  readonly="" style="font-size: 40px;"></div>
                         <ul class="navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow mx-1">
                                 <div class="nav-item dropdown no-arrow">
@@ -73,10 +73,10 @@
                     </div>
                 </nav>
 
- <h1 style="padding-left: 50px;">Posts</h1>
+ 
                 <div class="container-fluid">
                     <div class="row" style="height: 100%;">
-                        <div class="col-8" style="padding-left: 40px; padding-right: 40px; overflow: auto; max-height: 700px;">
+                        <div class="col-8" style="padding-left: 40px; padding-right: 40px; overflow: auto; max-height: 750px;">
                             <asp:Repeater runat="server" ID="BlogPosts">
                                 <ItemTemplate>
                                     <div style="margin-bottom: 20px;">

@@ -28,7 +28,7 @@
 <body id="page-top">
     <form runat="server" id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(119,40,32);">
-            <div class="container-fluid d-flex flex-column p-0"><img style="font-size: 12px;line-height: 23px;border-width: -14px;margin-top:15px;height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+            <div class="container-fluid d-flex flex-column p-0"><img style="font-size: 12px;line-height: 23px;border-width: -14px;margin-top:50px;height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
                     <div class="sidebar-brand-text mx-3"><span style="font-size: 25px;">LifePoints</span></div>
                 </a>
@@ -50,7 +50,7 @@
                     <div class="container-fluid">
                         <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
                         <div class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <input class="form-control-plaintext" type="text" value="Dashboard" readonly="" style="font-size: 40px;">
+                            <input class="form-control-plaintext" type="text" value="" readonly="" style="font-size: 40px;">
                         </div>
                         <ul class="navbar-nav flex-nowrap ml-auto">
                             <li class="nav-item dropdown no-arrow mx-1">
@@ -75,13 +75,13 @@
                     </div>
                 </nav>
                 <div class="container-fluid d-flex" style="justify-content: center; align-items: center;">
-                    <div class="card text-center" style="max-height: 700px; height: 700px; width: 80%;">
+                    <div class="card text-center" style="max-height: 800px; height: 800px; width: 80%;">
                         <div class="card-header">
                             <h2>BLOOD REQUEST</h2>
                             <h3>FORM</h3>
                         </div>
                         <div class="card-body">
-                            <div style="max-height: 500px; overflow: auto;">
+                            <div style="max-height: 600px; overflow: auto;">
                                 <p style="font-size: 25px; font-style: bold; margin-left: -30%">
                                     Please complete this form
                                 </p>
@@ -160,6 +160,11 @@
                     </div>
                 </div>
             </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © TechySavor 2022</span></div>
+                </div>
+            </footer>
         </div>
         <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </form>

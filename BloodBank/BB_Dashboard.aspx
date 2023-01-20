@@ -28,7 +28,7 @@
 <body id="page-top">
     <form runat="server" id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(119,40,32);">
-            <div class="container-fluid d-flex flex-column p-0"><img style="font-size: 12px;line-height: 23px;border-width: -14px;margin-top:15px;height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+            <div class="container-fluid d-flex flex-column p-0"><img style="font-size: 12px;line-height: 23px;border-width: -14px;margin-top:50px;height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
                     <div class="sidebar-brand-text mx-3"><span style="font-size: 25px;">LifePoints</span></div>
                 </a>
@@ -38,7 +38,7 @@
                     <li class="nav-item"><a class="nav-link" href="Admin_BlogPost.aspx"><i class="fas fa-tachometer-alt" style="font-size: 20px;"></i><span style="font-size: 15px;">Blog Post</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="BB_BloodTransaction.aspx"><i class="fa fa-tint" style="font-size: 20px;"></i><span style="font-size: 15px;">Blood Transaction</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="Admin_Reports.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Reports</span></a></li> 
-                    <li class="nav-item"><a class="nav-link" href="BB_ActionLogs.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Action Log</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="BB_ActionLogs.aspx"><i class="fa fa-list-ul" style="font-size: 20px;"></i><span style="font-size: 15px;">Action Logs</span></a></li>
 
                     </ul>
                 <div class="text-center d-none d-md-inline"></div>
@@ -155,7 +155,7 @@
                                                         <div class="col">
                                                             <div class="card" style="width: 100%;">
                                                                 <div class="card-header" style="padding: 0px; padding-top: 9px; background: #25476a;">
-                                                                    <h5 class="text-center" style="font-weight: bold; color: var(--white);">REQUESTS</h5>
+                                                                    <h5 class="text-center" style="font-weight: bold; color: var(--white);">REQUESTS(BLOOD)</h5>
                                                                 </div>
                                                                 <div class="card-body" style="width: 100%;">
                                                                     <div class="row">
@@ -171,7 +171,7 @@
                                                         <div class="col">
                                                             <div class="card" style="width: 100%;">
                                                                 <div class="card-header" style="padding: 0px; padding-top: 9px; background: #25476a;">
-                                                                    <h5 class="text-center" style="font-weight: bold; color: var(--white);">DONATIONS</h5>
+                                                                    <h5 class="text-center" style="font-weight: bold; color: var(--white);">REQUEST(DONOR)</h5>
                                                                 </div>
                                                                 <div class="card-body" style="width: 100%;">
                                                                     <div class="row">
@@ -213,7 +213,7 @@
                 </div>
             </footer>
         </div>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </form>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

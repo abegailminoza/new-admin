@@ -29,7 +29,7 @@
     <form runat="server" id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(119,40,32);">
             <div class="container-fluid d-flex flex-column p-0">
-                <img style="font-size: 12px; line-height: 23px; border-width: -14px; height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                <img style="font-size: 12px; line-height: 23px; border-width: -14px; height: 97px;margin-top:50px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
                     <div class="sidebar-brand-text mx-3"><span style="font-size: 30px;">VSMMC</span></div>
                 </a>
@@ -75,7 +75,7 @@
                         <div class="col">
                             <div class="card shadow">
                                 <div class="card-header py-3">
-                                    <h1>Action Logs</h1>
+                                    
                                 </div>
                                 <div class="card-body">
                                     <h3 runat="server" id="NoDataMsg" style="display: none;">No Data</h3>
@@ -100,7 +100,13 @@
                     </div>
                 </div>
             </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © TechySavor 2022</span></div>
+                </div>
+            </footer>
         </div>
+        
         <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </form>
     <script src="assets/js/jquery.min.js"></script>

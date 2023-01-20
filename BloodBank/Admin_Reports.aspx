@@ -28,7 +28,7 @@
 <body id="page-top">
     <form runat="server" id="wrapper">
     <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: rgb(119,40,32);">
-            <div class="container-fluid d-flex flex-column p-0"><img style="font-size: 12px;line-height: 23px;border-width: -14px;margin-top:15px;height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+            <div class="container-fluid d-flex flex-column p-0"><img style="font-size: 12px;line-height: 23px;border-width: -14px;margin-top:50px;height: 97px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
                     <div class="sidebar-brand-text mx-3"><span style="font-size: 25px;">LifePoints</span></div>
                 </a>
@@ -73,7 +73,7 @@
                 <div class="container-fluid">
                     <div class="card shadow">
                         <div class="card-header py-3">
-                            <h3 class="text-dark mb-4" style="height: 31.5938px; margin: 32px;" runat="server" id="HeadingText">Reports</h3>
+                            
                         </div>
                         <div class="card-body">
                             <div class="card-header d-flex" style="flex-direction: row; justify-content: start; align-items: center;">
@@ -103,6 +103,11 @@
                     </div>
                 </div>
             </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Copyright © TechySavor 2022</span></div>
+                </div>
+            </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </form>
     <script src="assets/js/jquery.min.js"></script>
