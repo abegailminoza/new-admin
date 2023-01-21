@@ -35,7 +35,7 @@
                             <div class="col-lg-6 d-flex justify-content-xl-center align-items-xl-center">
                                 <div class="p-5" style="width: 100%;">
                                     <div class="text-center" style="margin-bottom: 15px;">
-                                        <h4 class="text-dark mb-4">Welcome Back to LifePoints</h4>
+                                        <h4 class="text-dark mb-4">LifePoints Admin</h4>
                                     </div>
                                     <hr style="margin-bottom: 24px;">
                                     <div class="user">

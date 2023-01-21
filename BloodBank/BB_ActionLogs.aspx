@@ -31,7 +31,7 @@
             <div class="container-fluid d-flex flex-column p-0">
                 <img style="font-size: 12px; line-height: 23px; border-width: -14px; height: 97px;margin-top:50px;" src="assets/img/solologo.png"><a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
-                    <div class="sidebar-brand-text mx-3"><span style="font-size: 30px;">VSMMC</span></div>
+                    <div class="sidebar-brand-text mx-3"><span style="font-size: 25px;">LifePoints</span></div>
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">

@@ -74,7 +74,8 @@ namespace BloodBank
 
             Session.Clear();
             Session.RemoveAll();
-            Server.Transfer("~/Default.aspx");
+            Session["LOGIN"] = false;
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

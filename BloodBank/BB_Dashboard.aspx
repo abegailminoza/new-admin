@@ -89,7 +89,8 @@
                                                                     <h1 runat="server" id="TotalNumberUser"></h1>
                                                                 </div>
                                                                 <div class="col-2 d-flex justify-content-xl-center align-items-xl-center">
-                                                                    <img src="assets/img/user.png" width="30"></div>
+                                                                    <img src="assets/img/user.png" width="30">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -99,7 +100,7 @@
                                                         <div class="col">
                                                             <div class="card" style="width: 100%;">
                                                                 <div class="card-header" style="padding: 0px; padding-top: 9px; background: var(--red);">
-                                                                    <h5 class="text-center" style="font-weight: bold; color: var(--white);">REQUESTOR</h5>
+                                                                    <h5 class="text-center" style="font-weight: bold; color: var(--white);">REQUESTER</h5>
                                                                 </div>
                                                                 <div class="card-body" style="width: 100%;">
                                                                     <div class="row">
@@ -107,7 +108,8 @@
                                                                             <h1 runat="server" id="NumberRequestor"></h1>
                                                                         </div>
                                                                         <div class="col-3 d-flex justify-content-xl-center align-items-xl-center">
-                                                                            <img src="assets/img/blood-drop.png" width="30"></div>
+                                                                            <img src="assets/img/blood-drop.png" width="30">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -123,7 +125,8 @@
                                                                             <h1 runat="server" id="NumberDonor"></h1>
                                                                         </div>
                                                                         <div class="col-3 d-flex justify-content-xl-center align-items-xl-center">
-                                                                            <img src="assets/img/blood-donation.png" width="30"></div>
+                                                                            <img src="assets/img/blood-donation.png" width="30">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -145,7 +148,8 @@
                                                                     <h1 runat="server" id="TotalNumberTransaction"></h1>
                                                                 </div>
                                                                 <div class="col-2 d-flex justify-content-xl-center align-items-xl-center">
-                                                                    <img src="assets/img/bill.png" width="30"></div>
+                                                                    <img src="assets/img/bill.png" width="30">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -163,7 +167,8 @@
                                                                             <h1 runat="server" id="NumberRequestTransaction"></h1>
                                                                         </div>
                                                                         <div class="col-3 d-flex justify-content-xl-center align-items-xl-center">
-                                                                            <img src="assets/img/blood-drop.png" width="30"></div>
+                                                                            <img src="assets/img/blood-drop.png" width="30">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -171,7 +176,7 @@
                                                         <div class="col">
                                                             <div class="card" style="width: 100%;">
                                                                 <div class="card-header" style="padding: 0px; padding-top: 9px; background: #25476a;">
-                                                                    <h5 class="text-center" style="font-weight: bold; color: var(--white);">REQUEST(DONOR)</h5>
+                                                                    <h5 class="text-center" style="font-weight: bold; color: var(--white);">REQUESTS(DONOR)</h5>
                                                                 </div>
                                                                 <div class="card-body" style="width: 100%;">
                                                                     <div class="row">
@@ -179,7 +184,8 @@
                                                                             <h1 runat="server" id="NumberDonationTransaction"></h1>
                                                                         </div>
                                                                         <div class="col-3 d-flex justify-content-xl-center align-items-xl-center">
-                                                                            <img src="assets/img/blood-donation.png" width="30"></div>
+                                                                            <img src="assets/img/blood-donation.png" width="30">
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -193,7 +199,17 @@
                                 <div class="col-5">
                                     <div class="card d-flex">
                                         <div class="card-header" style="background: var(--red); padding: 0px; padding-top: 9px;">
-                                            <h3 class="text-center" style="font-weight: bold; color: var(--white);">Blood Transactions</h3>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h3 style="font-weight: bold; color: var(--white);">Blood <span runat="server" id="PieTitle"></span> Transactions</h3>
+                                                </div>
+                                                <div class="col-3">
+                                                    <asp:DropDownList runat="server" ID="PieOption" AutoPostBack="true" OnSelectedIndexChanged="PieOption_SelectedIndexChanged">
+                                                        <asp:ListItem Text="Blood Requests" Value="0"></asp:ListItem>
+                                                        <asp:ListItem Text="Blood Donations" Value="1"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="card-body">
                                             <div>
