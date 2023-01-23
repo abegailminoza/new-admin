@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -33,7 +34,7 @@ namespace BloodBank
         private void PopulateRequestBloodGrid()
         {
             string stat = RequestStatus.SelectedValue;
-            string query = string.Format(@"select BREQ_ID, BREQ_UACC_ID, BREQ_JSON_SURVEY_FORM, BREQ_REQ_STATUS, BREQ_DATE,BREQ_VISIT_DATE,
+            string query = string.Format(@"select BREQ_ID, BREQ_UACC_ID, BREQ_JSON_SURVEY_FORM, BREQ_REQ_STATUS, BREQ_DATE, BREQ_VISIT_DATE,
                                             if(BREQ_SURVEY_STATUS = false && BREQ_REQ_STATUS = true, 'PENDING', 
                                             if(BREQ_SURVEY_STATUS = true && BREQ_REQ_STATUS = true, 'APPROVED', 
                                             if(BREQ_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BREQ_SURVEY_STATUS,
@@ -41,16 +42,16 @@ namespace BloodBank
                                             if(BREQ_BLOOD_STATUS = true && BREQ_REQ_STATUS = true, 'YES', 
                                             if(BREQ_REQ_STATUS = false, 'REJECTED', 'NO'))) as BREQ_BLOOD_STATUS
                                              from blood_request");
-            switch(stat)
+            switch (stat)
             {
                 case "0":
                     query += " order by BREQ_DATE desc;";
                     break;
                 case "1":
-                    query += " where (BREQ_SURVEY_STATUS=false and BREQ_REQ_STATUS=true) or (BREQ_BLOOD_STATUS=false and BREQ_REQ_STATUS=true) order by BREQ_DATE desc;";
+                    query += " where BREQ_SURVEY_STATUS=false and BREQ_BLOOD_STATUS=false and BREQ_REQ_STATUS=true order by BREQ_DATE desc;";
                     break;
                 case "2":
-                    query += " where BREQ_BLOOD_STATUS=true and BREQ_REQ_STATUS=true order by BREQ_DATE desc;";
+                    query += " where BREQ_SURVEY_STATUS=true and (BREQ_BLOOD_STATUS=false or BREQ_BLOOD_STATUS=true) and BREQ_REQ_STATUS=true order by BREQ_DATE desc;";
                     break;
                 case "3":
                     query += " where BREQ_REQ_STATUS=false order by BREQ_DATE desc;";
@@ -70,7 +71,7 @@ namespace BloodBank
         private void PopulateDonationBloodGrid()
         {
             string stat = RequestStatus.SelectedValue;
-            string query = string.Format(@"select BD_ID, BD_UACC_ID, BD_JSON_SURVEY_FORM, BD_REQ_STATUS, BD_DATE,
+            string query = string.Format(@"select BD_ID, BD_UACC_ID, BD_JSON_SURVEY_FORM, BD_REQ_STATUS, BD_DATE, BD_VISIT_DATE,
                                             if(BD_SURVEY_STATUS = false && BD_REQ_STATUS = true, 'PENDING', 
                                             if(BD_SURVEY_STATUS = true && BD_REQ_STATUS = true, 'APPROVED', 
                                             if(BD_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BD_SURVEY_STATUS,
@@ -84,10 +85,10 @@ namespace BloodBank
                     query += " order by BD_DATE desc;";
                     break;
                 case "1":
-                    query += " where (BD_SURVEY_STATUS=false and BD_REQ_STATUS=true) or (BD_BLOOD_STATUS=false and BD_REQ_STATUS=true) order by BD_DATE desc;";
+                    query += " where BD_SURVEY_STATUS=false and BD_BLOOD_STATUS=false and BD_REQ_STATUS=true order by BD_DATE desc;";
                     break;
                 case "2":
-                    query += " where BD_BLOOD_STATUS=true and BD_REQ_STATUS=true order by BD_DATE desc;";
+                    query += " where BD_SURVEY_STATUS=true and (BD_BLOOD_STATUS=false or BD_BLOOD_STATUS=true) and BD_REQ_STATUS=true order by BD_DATE desc;";
                     break;
                 case "3":
                     query += " where BD_REQ_STATUS=false order by BD_DATE desc;";
@@ -128,12 +129,27 @@ namespace BloodBank
             RequestStatus.Items.Insert(3, new ListItem("Rejected", "3"));
 
             TableView.Items.Insert(0, new ListItem("Blood Requests", "0"));
-            TableView.Items.Insert(1, new ListItem("Blood Donor", "1"));
+            TableView.Items.Insert(1, new ListItem("Blood Donation", "1"));
         }
 
         protected void RequestStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PopulateRequestBloodGrid();
+            int table = TableView.SelectedIndex;
+            switch (table)
+            {
+                case 0:
+                    GridUserBloodRequest.Style.Add("display", "");
+                    GridUserBloodDonation.Style.Add("display", "none");
+                    HeadingText.InnerText = "Blood Request Transactions";
+                    PopulateRequestBloodGrid();
+                    break;
+                case 1:
+                    GridUserBloodRequest.Style.Add("display", "none");
+                    GridUserBloodDonation.Style.Add("display", "");
+                    HeadingText.InnerText = "Blood Donation Transactions";
+                    PopulateDonationBloodGrid();
+                    break;
+            }
         }
 
         protected void SearchBloodRequest_Click(object sender, EventArgs e)
@@ -191,7 +207,6 @@ namespace BloodBank
             }
 
 
-
         }
 
         protected void TableView_SelectedIndexChanged(object sender, EventArgs e)
@@ -235,5 +250,8 @@ namespace BloodBank
             Session.RemoveAll();
             Server.Transfer("~/Default.aspx");
         }
+
+
+
     }
 }

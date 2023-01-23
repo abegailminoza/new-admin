@@ -115,7 +115,7 @@
                                        <asp:BoundField HeaderText="REQUEST ID" DataField="BD_ID" />
                                         <asp:BoundField HeaderText="DONOR" DataField="BD_UACC_ID" />
                                         <asp:BoundField HeaderText="REQUEST STATUS" DataField="BD_SURVEY_STATUS" />
-                                        <asp:BoundField HeaderText="DATE" DataField="BD_DATE" />
+                                        <asp:BoundField HeaderText="WITHIN DATE" DataField="BD_VISIT_DATE" />
                                         
                                         <asp:BoundField HeaderText="DONATED" DataField="BD_BLOOD_STATUS" />
                                         <asp:CommandField ButtonType="Button" ShowSelectButton="true" SelectText="View" ControlStyle-CssClass="btn btn-danger"  />
