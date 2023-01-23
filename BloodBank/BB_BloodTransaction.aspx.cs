@@ -33,13 +33,13 @@ namespace BloodBank
         private void PopulateRequestBloodGrid()
         {
             string stat = RequestStatus.SelectedValue;
-            string query = string.Format(@"select BREQ_ID, BREQ_UACC_ID, BREQ_JSON_SURVEY_FORM, BREQ_REQ_STATUS, BREQ_DATE,
+            string query = string.Format(@"select BREQ_ID, BREQ_UACC_ID, BREQ_JSON_SURVEY_FORM, BREQ_REQ_STATUS, BREQ_DATE,BREQ_VISIT_DATE,
                                             if(BREQ_SURVEY_STATUS = false && BREQ_REQ_STATUS = true, 'PENDING', 
                                             if(BREQ_SURVEY_STATUS = true && BREQ_REQ_STATUS = true, 'APPROVED', 
                                             if(BREQ_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BREQ_SURVEY_STATUS,
-                                            if(BREQ_BLOOD_STATUS = false && BREQ_REQ_STATUS = true, 'PENDING', 
-                                            if(BREQ_BLOOD_STATUS = true && BREQ_REQ_STATUS = true, 'APPROVED', 
-                                            if(BREQ_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BREQ_BLOOD_STATUS
+                                            if(BREQ_BLOOD_STATUS = false && BREQ_REQ_STATUS = true, '---', 
+                                            if(BREQ_BLOOD_STATUS = true && BREQ_REQ_STATUS = true, 'YES', 
+                                            if(BREQ_REQ_STATUS = false, 'REJECTED', 'NO'))) as BREQ_BLOOD_STATUS
                                              from blood_request");
             switch(stat)
             {
@@ -74,9 +74,9 @@ namespace BloodBank
                                             if(BD_SURVEY_STATUS = false && BD_REQ_STATUS = true, 'PENDING', 
                                             if(BD_SURVEY_STATUS = true && BD_REQ_STATUS = true, 'APPROVED', 
                                             if(BD_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BD_SURVEY_STATUS,
-                                            if(BD_BLOOD_STATUS = false && BD_REQ_STATUS = true, 'PENDING', 
-                                            if(BD_BLOOD_STATUS = true && BD_REQ_STATUS = true, 'APPROVED', 
-                                            if(BD_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BD_BLOOD_STATUS
+                                            if(BD_BLOOD_STATUS = false && BD_REQ_STATUS = true, '---', 
+                                            if(BD_BLOOD_STATUS = true && BD_REQ_STATUS = true, 'YES', 
+                                            if(BD_REQ_STATUS = false, 'REJECTED', 'NO'))) as BD_BLOOD_STATUS
                                              from blood_donation");
             switch (stat)
             {
@@ -128,7 +128,7 @@ namespace BloodBank
             RequestStatus.Items.Insert(3, new ListItem("Rejected", "3"));
 
             TableView.Items.Insert(0, new ListItem("Blood Requests", "0"));
-            TableView.Items.Insert(1, new ListItem("Blood Donation", "1"));
+            TableView.Items.Insert(1, new ListItem("Blood Donor", "1"));
         }
 
         protected void RequestStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,13 +145,13 @@ namespace BloodBank
             switch (x)
             {
                 case 0:
-                    query = string.Format(@"select BREQ_ID, BREQ_UACC_ID, BREQ_JSON_SURVEY_FORM, BREQ_REQ_STATUS, BREQ_DATE,
+                    query = string.Format(@"select BREQ_ID, BREQ_UACC_ID, BREQ_JSON_SURVEY_FORM, BREQ_REQ_STATUS, BREQ_DATE,BREQ_VISIT_DATE,
                                             if(BREQ_SURVEY_STATUS = false && BREQ_REQ_STATUS = true, 'PENDING', 
                                             if(BREQ_SURVEY_STATUS = true && BREQ_REQ_STATUS = true, 'APPROVED', 
                                             if(BREQ_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BREQ_SURVEY_STATUS,
-                                            if(BREQ_BLOOD_STATUS = false && BREQ_REQ_STATUS = true, 'PENDING', 
-                                            if(BREQ_BLOOD_STATUS = true && BREQ_REQ_STATUS = true, 'APPROVED', 
-                                            if(BREQ_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BREQ_BLOOD_STATUS
+                                            if(BREQ_BLOOD_STATUS = false && BREQ_REQ_STATUS = true, '---', 
+                                            if(BREQ_BLOOD_STATUS = true && BREQ_REQ_STATUS = true, 'YES', 
+                                            if(BREQ_REQ_STATUS = false, 'REJECTED', 'NO'))) as BREQ_BLOOD_STATUS
                                              from blood_request where BREQ_ID={0};", SearchRequest.Text);
                     dt = db.GetBloodTransactionTableData(query);
                     if (dt != null)
@@ -167,12 +167,12 @@ namespace BloodBank
                     }
                     break;
                 case 1:
-                    query = string.Format(@"select BD_ID, BD_UACC_ID, BD_JSON_SURVEY_FORM, BD_REQ_STATUS, BD_DATE,
+                    query = string.Format(@"select BD_ID, BD_UACC_ID, BD_JSON_SURVEY_FORM, BD_REQ_STATUS, BD_DATE,BD_VISIT_DATE,
                                             if(BD_SURVEY_STATUS = false && BD_REQ_STATUS = true, 'PENDING', 
                                             if(BD_SURVEY_STATUS = true && BD_REQ_STATUS = true, 'APPROVED', 
                                             if(BD_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BD_SURVEY_STATUS,
-                                            if(BD_BLOOD_STATUS = false && BD_REQ_STATUS = true, 'PENDING', 
-                                            if(BD_BLOOD_STATUS = true && BD_REQ_STATUS = true, 'APPROVED', 
+                                            if(BD_BLOOD_STATUS = false && BD_REQ_STATUS = true, '---', 
+                                            if(BD_BLOOD_STATUS = true && BD_REQ_STATUS = true, 'YES', 
                                             if(BD_REQ_STATUS = false, 'REJECTED', 'REJECTED'))) as BD_BLOOD_STATUS
                                              from blood_donation where BD_ID={0};", SearchRequest.Text);
                     dt = db.GetuserBloodDonation(query);

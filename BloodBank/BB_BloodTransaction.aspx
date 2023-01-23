@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    <title>Blood Transactions</title>
+    <title>Blood Transactions | Admin</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans" />
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="d-flex" style="flex-direction: row; justify-content: center; align-items: center; margin-right: 20px;">
                                     <h5 style="margin-right: 5px;">Search Request ID</h5>
-                                    <asp:TextBox runat="server" ID="SearchRequest"  placeholder="Requester ID" />
+                                    <asp:TextBox runat="server" ID="SearchRequest"  placeholder="" />
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" style="margin-right: 5px;" ErrorMessage="*" Text="*" ControlToValidate="Searchrequest" ValidationGroup="SearchRequest" Font-Bold="True" Font-Size="XX-Large"></asp:RequiredFieldValidator>
                                     <asp:Button runat="server" ID="SearchBloodRequest" Text="Search" ValidationGroup="SearchRequest" UseSubmitBehavior="true" OnClick="SearchBloodRequest_Click" />
                                 </div>
@@ -98,12 +98,13 @@
                                     AutoPostBack="false" 
                                     AllowSorting="true">
                                     <Columns>
-                                        <asp:BoundField HeaderText="ID" DataField="BREQ_ID" />
+                                        <asp:BoundField HeaderText="REQUEST ID" DataField="BREQ_ID" />
                                         <asp:BoundField HeaderText="REQUESTER" DataField="BREQ_UACC_ID" />
-                                        <asp:BoundField HeaderText="INITIAL STATUS" DataField="BREQ_SURVEY_STATUS" />
-                                        <asp:BoundField HeaderText="FINAL STATUS" DataField="BREQ_BLOOD_STATUS" />
+                                        <asp:BoundField HeaderText="REQUEST STATUS" DataField="BREQ_SURVEY_STATUS" />
                                         <asp:BoundField HeaderText="DATE" DataField="BREQ_DATE" />
-                                        <asp:CommandField ButtonType="Button" ShowSelectButton="true" SelectText="View" ControlStyle-CssClass="btn-danger" />
+                                        <asp:BoundField HeaderText="EXPECTED DATE CLAIM" DataField="BREQ_VISIT_DATE" />
+                                        <asp:BoundField HeaderText="CLAIMED" DataField="BREQ_BLOOD_STATUS" />
+                                        <asp:CommandField ButtonType="Button" ShowSelectButton="true" SelectText="View" ControlStyle-CssClass="btn btn-danger" />
                                     </Columns>
                                 </asp:GridView>
                                 <asp:GridView runat="server" ID="GridUserBloodDonation" Visible="true" AutoGenerateColumns="false" Width="100%"
@@ -111,12 +112,13 @@
                                     AutoPostBack="false" style="display: none;"
                                     AllowSorting="true">
                                     <Columns>
-                                        <asp:BoundField HeaderText="ID" DataField="BD_ID" />
-                                        <asp:BoundField HeaderText="DONATOR" DataField="BD_UACC_ID" />
-                                        <asp:BoundField HeaderText="SURVEY STATUS" DataField="BD_SURVEY_STATUS" />
-                                        <asp:BoundField HeaderText="BLOOD STATUS" DataField="BD_BLOOD_STATUS" />
+                                       <asp:BoundField HeaderText="REQUEST ID" DataField="BD_ID" />
+                                        <asp:BoundField HeaderText="DONOR" DataField="BD_UACC_ID" />
+                                        <asp:BoundField HeaderText="REQUEST STATUS" DataField="BD_SURVEY_STATUS" />
                                         <asp:BoundField HeaderText="DATE" DataField="BD_DATE" />
-                                        <asp:CommandField ButtonType="Button" ShowSelectButton="true" SelectText="View" ControlStyle-CssClass="btn-danger"  />
+                                        
+                                        <asp:BoundField HeaderText="DONATED" DataField="BD_BLOOD_STATUS" />
+                                        <asp:CommandField ButtonType="Button" ShowSelectButton="true" SelectText="View" ControlStyle-CssClass="btn btn-danger"  />
                                     </Columns>
                                 </asp:GridView>
                             </div>
