@@ -113,7 +113,7 @@
                                                     </div>
                                                     <div class="col-2 d-flex align-items-xxl-center"><span style="font-weight: bold; color: rgb(119,40,32);"><%#Eval("BLOG_REPORT") %></span></div>
                                                     <div class="col d-flex justify-content-xxl-end align-items-xxl-center">
-                                                        <img class="img-fluid" src="assets/img/reply.png" width="20">
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
